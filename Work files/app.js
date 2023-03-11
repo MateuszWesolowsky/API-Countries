@@ -1,4 +1,4 @@
-import { renderCountriesList } from "./dom-elements.js";
+import { renderCountries } from "./dom-elements.js";
 
 const API_URL = "https://restcountries.com/v3.1/all";
 
@@ -24,7 +24,7 @@ const API_URL = "https://restcountries.com/v3.1/all";
 	// const resData = await data.json(); //dłuższy, czytelniejszy zapis
 	const countries = data.map((country) => {
 		return {
-			capital: country.capital,
+			capital: country.capital || 'No Capital',
 			population: country.population,
 			name: country.name.common,
 			region: country.region,
@@ -32,5 +32,5 @@ const API_URL = "https://restcountries.com/v3.1/all";
 		};
 	});
 	// console.log(countries);
-	renderCountriesList(countries);
+	renderCountries(countries);
 })();
