@@ -18,9 +18,19 @@
 	width: 100%;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	padding: 10px;
+	border-radius: 5%;
 }
 
+.name {
+	font-size: 20px;
+	padding: 5px;
+	display: block;
+
+}
 .main .card img {
-	aspect-ratio: 168/98;
+	aspect-ratio: 16/9;
 	width: 100%;
+}
+.info {
+	padding: 5px;
 }
