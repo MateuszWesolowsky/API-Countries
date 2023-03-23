@@ -7,14 +7,14 @@ const renderDetail = () => {
 	const searchParams = new URLSearchParams(window.location.search);
 	const countryCode = searchParams.get("country");
 	if(!countryCode) {
-	    renderApi();
+	    goBackToDashboard();
 	}
 	const API_URL_DETAIL = `https://restcountries.com/v3.1/alpha/${countryCode}`;
 	fetch(API_URL_DETAIL)
 		.then((res) => res.json())
 		.then(([country]) => {
             if(!country) {
-                renderApi();
+                goBackToDashboard();
             }
         country = {
             capital: country.capital || "No Capital",
@@ -37,5 +37,9 @@ if (window.location.search.includes("?country=")) {
 	document.querySelector(".filters").classList.add("hidden");
     renderDetail();
 } else {
-	renderApi();
+	goBackToDashboard();
+}
+
+const goBackToDashboard = () => {
+    window.location.href = 'http://127.0.0.1:5500/Work%20files/';
 }
