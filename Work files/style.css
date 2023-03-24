@@ -73,3 +73,14 @@ nav p {
 	border: none;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+.detail {
+	display: flex;
+	justify-content: center;
+}
+.detail-container {
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	padding: 1rem;
+	border-radius: 5%;
+	margin-top: 2rem;
+}
