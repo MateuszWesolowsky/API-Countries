@@ -42,6 +42,7 @@ const createCardElement = (country) => {
 
 const createDetailElement = (country) => {
 	const detailContainer = document.createElement('div');
+	detailContainer.classList.add('detail-container');
 	const flagElement = createFlagElement(country.flag);
 	const detailNameElement = document.createElement('strong');
 	detailNameElement.textContent = country.name;
@@ -69,6 +70,7 @@ export const renderCountries = (countries) => {
 
 export const renderCountryDetail = (country) => {
 	const mainElement = document.querySelector(".main");
+	mainElement.classList.add('detail')
 	mainElement.innerHTML ='';
 	mainElement.appendChild(createDetailElement(country));
 }
