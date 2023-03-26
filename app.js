@@ -10,7 +10,7 @@ searchInput.addEventListener("input", async (e) => {
 	let countryName = e.target.value;
 	const data = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
 	const resData = await data.json();
-	if(resData.message === "Page Not Found" || resData.status === 404 || !countryName) return window.location.href = 'http://127.0.0.1:5500/Work%20files/';
+	if(resData.message === "Page Not Found" || resData.status === 404 || !countryName) return window.location.href = '/';
 	const countries = resData.map((country) => {
 		return {
 			capital: country.capital || "No Capital",
@@ -42,7 +42,7 @@ selectInput.addEventListener("change", (e) => {
 				renderCountries(countries);
 			});
 			if(countryRegion === '') {
-				window.location.href = 'http://127.0.0.1:5500/Work%20files/';
+				window.location.href = '/';
 			}
 });
 

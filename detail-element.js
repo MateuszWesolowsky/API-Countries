@@ -1,14 +1,14 @@
-import { renderApi } from "./app.js";
 import { renderCountryDetail } from "./dom-elements.js";
 
 
+const goBackToDashboard = () => {
+    window.location.href = '/';
+}
 
 const renderDetail = () => {
 	const searchParams = new URLSearchParams(window.location.search);
 	const countryCode = searchParams.get("country");
-	if(!countryCode) {
-	    goBackToDashboard();
-	}
+
 	const API_URL_DETAIL = `https://restcountries.com/v3.1/alpha/${countryCode}`;
 	fetch(API_URL_DETAIL)
 		.then((res) => res.json())
@@ -22,7 +22,7 @@ const renderDetail = () => {
 			name: country.name.common,
 			region: country.region,
 			flag: country.flags.png,
-			code: country.cioc,
+			code: country.cioc || '',
             subregion: country.subregion,
             tld: country.tld[0],
             currencies: Object.values(country.currencies).map((currency) => currency.name),
@@ -36,10 +36,13 @@ const renderDetail = () => {
 if (window.location.search.includes("?country=")) {
 	document.querySelector(".filters").classList.add("hidden");
     renderDetail();
-} else {
+}
+else {
+	document.querySelector(".filters").classList.remove("hidden");
+}
+
+if (window.location.search.includes("?country=undefined")) {
+	document.querySelector(".filters").classList.remove("hidden");
 	goBackToDashboard();
 }
 
-const goBackToDashboard = () => {
-    window.location.href = 'http://127.0.0.1:5500/Work%20files/';
-}
